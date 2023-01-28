@@ -1,4 +1,4 @@
-import { app, analytics } from "../components/Firebase";
+import { app, analytics } from "../components/utils/Firebase";
 import "./globals.css";
 
 export default function RootLayout({
