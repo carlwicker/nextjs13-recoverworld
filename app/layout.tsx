@@ -1,5 +1,8 @@
 import { app, analytics } from "../components/utils/Firebase";
+import { Arimo } from "@next/font/google";
+
 import "./globals.css";
+const arimo = Arimo({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -9,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body>{children}</body>
+      <body className={arimo.className}>{children}</body>
     </html>
   );
 }
