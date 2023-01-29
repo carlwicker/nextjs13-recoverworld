@@ -1,4 +1,3 @@
-import { app, analytics } from "../components/utils/Firebase";
 import { Arimo } from "@next/font/google";
 
 import "./globals.css";
