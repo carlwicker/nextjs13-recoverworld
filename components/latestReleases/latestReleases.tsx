@@ -39,7 +39,6 @@ export default function LatestReleases() {
       querySnapshot.forEach((doc) => {
         data.push(doc.data());
       });
-      console.log(data);
       setLatestReleases(data);
     }
     getData();

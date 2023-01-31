@@ -1,8 +1,8 @@
 interface ITrackListing {
-  [key: string]: ITrackListingItem[];
+  [key: string]: ITrack[];
 }
 
-interface ITrackListingItem {
+interface ITrack {
   artist: string;
   beatport: string;
   itunes: string;
@@ -17,7 +17,7 @@ interface ITrackListingItem {
 export default function Tracklisting({ trackListing }: ITrackListing) {
   return (
     <div className="text-[32pt]">
-      {trackListing?.map((track: ITrackListingItem, idx: number) => {
+      {trackListing?.map((track: ITrack, idx: number) => {
         return (
           <div key={idx}>
             {idx >= 9 ? idx + 1 : `0${idx + 1}`}: {track?.artist} -{" "}
