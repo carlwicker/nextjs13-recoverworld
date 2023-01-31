@@ -1,12 +1,17 @@
-export default function CatLabel() {
+interface ICatLabel {
+  label: string;
+  catNum: string;
+}
+
+export default function CatLabel({ label, catNum }: ICatLabel) {
   return (
     <div className="flex gap-2">
       <div className="hover:text-red-600 transition duration-500 ease-out cursor-pointer">
-        EVEREC087
+        {catNum}
       </div>
       {" | "}
       <div className="hover:text-red-600 transition duration-500 ease-out cursor-pointer">
-        EVE Records
+        {label}
       </div>
     </div>
   );

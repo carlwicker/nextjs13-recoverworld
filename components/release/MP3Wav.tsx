@@ -1,7 +1,16 @@
-export default function MP3Wav() {
+interface IMp3Wav {
+  mp3wav: string;
+}
+
+export default function MP3Wav({ mp3wav }: IMp3Wav) {
   return (
-    <div className="uppercase font-black text-2xl hover:text-red-600 transition duration-500 ease-out cursor-pointer">
+    <a
+      href={mp3wav}
+      target="_blank"
+      rel="noreferrer"
+      className="uppercase font-black text-2xl hover:text-red-600 transition duration-500 ease-out cursor-pointer"
+    >
       MP3/Wav
-    </div>
+    </a>
   );
 }
