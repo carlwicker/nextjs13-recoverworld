@@ -1,3 +1,7 @@
+interface ITrackListing {
+  [key: string]: ITrackListingItem[];
+}
+
 interface ITrackListingItem {
   artist: string;
   beatport: string;
@@ -10,14 +14,14 @@ interface ITrackListingItem {
   youtube: string;
 }
 
-export default function Tracklisting({ trackListing }: any) {
-  console.log(trackListing);
+export default function Tracklisting({ trackListing }: ITrackListing) {
   return (
     <div className="text-[32pt]">
-      {trackListing?.map((track: any) => {
+      {trackListing?.map((track: ITrackListingItem, idx: number) => {
         return (
-          <div key={track.artist}>
-            01: {track?.artist} - {track.title} ({track.mix})
+          <div key={idx}>
+            {idx >= 9 ? idx + 1 : `0${idx + 1}`}: {track?.artist} -{" "}
+            {track.title} ({track.mix})
           </div>
         );
       })}

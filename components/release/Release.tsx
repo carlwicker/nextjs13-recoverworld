@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ArtistTitle from "./ArtistTitle";
 import Beatport from "./Beatport";
 import CatLabel from "./CatLabel";
@@ -5,8 +6,13 @@ import MP3Wav from "./MP3Wav";
 import Spotify from "./Spotify";
 import Tracklisting from "./TrackListing";
 
+interface IData {
+  [key: string]: IRelease;
+}
+
 interface IRelease {
   ampsuiteId: number;
+  artist: string;
   artwork: string;
   catNum: string;
   id: string;
@@ -28,7 +34,11 @@ interface ITrack {
   youtube: string;
 }
 
-export default function Release({ release }: any) {
+export default function Release({ release }: IData) {
+  useEffect(() => {
+    console.log(release);
+  }, [release]);
+
   return (
     <div className="container">
       <div className="px-5 py-40 w-full flex flex-col gap-[3rem]">
