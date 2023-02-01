@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import ArtistTitle from "./ArtistTitle";
 import Beatport from "./Beatport";
 import CatLabel from "./CatLabel";
@@ -6,39 +5,13 @@ import MP3Wav from "./MP3Wav";
 import Spotify from "./Spotify";
 import Tracklisting from "./TrackListing";
 
-interface IData {
+import { IRelease } from "@/interfaces/IRelease";
+
+interface IReleaseData {
   [key: string]: IRelease;
 }
 
-interface IRelease {
-  ampsuiteId: number;
-  artist: string;
-  artwork: string;
-  catNum: string;
-  id: string;
-  label: string;
-  releaseDate: number;
-  title: string;
-  trackListing: ITrack[];
-}
-
-interface ITrack {
-  artist: string;
-  beatport: string;
-  itunes: string;
-  mix: string;
-  recoverworld: string;
-  soundcloud: string;
-  spotify: string;
-  title: string;
-  youtube: string;
-}
-
-export default function Release({ release }: IData) {
-  useEffect(() => {
-    console.log(release);
-  }, [release]);
-
+export default function Release({ release }: IReleaseData) {
   return (
     <div className="container">
       <div className="px-5 py-40 w-full flex flex-col gap-[3rem]">

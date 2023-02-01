@@ -1,17 +1,7 @@
+import { ITrack } from "@/interfaces/ITrack";
+
 interface ITrackListing {
   [key: string]: ITrack[];
-}
-
-interface ITrack {
-  artist: string;
-  beatport: string;
-  itunes: string;
-  mix: string;
-  recoverworld: string;
-  soundcloud: string;
-  spotify: string;
-  title: string;
-  youtube: string;
 }
 
 export default function Tracklisting({ trackListing }: ITrackListing) {
