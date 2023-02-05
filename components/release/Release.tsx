@@ -6,29 +6,57 @@ import Spotify from "./Spotify";
 import Tracklisting from "./TrackListing";
 
 import { IRelease } from "@/interfaces/IRelease";
+import { useEffect, useRef } from "react";
+import { useInView, motion } from "framer-motion";
 
 interface IReleaseData {
   [key: string]: IRelease;
 }
 
 export default function Release({ release }: IReleaseData) {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.25,
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, x: 10, transition: {} },
+    show: { opacity: 1, x: 0 },
+  };
+
   return (
-    <div className="container">
-      <div className="px-5 py-40 w-full flex flex-col gap-[3rem]">
-        <CatLabel label={release.label} catNum={release.catNum} />
-        <div className="flex flex-col gap-[6rem]">
+    <>
+      <motion.div
+        className="py-40 w-full flex flex-col gap-20"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+      >
+        <motion.div variants={item}>
+          <CatLabel label={release.label} catNum={release.catNum} />
+        </motion.div>
+
+        <motion.div variants={item} className="flex flex-col gap-[6rem]">
           <ArtistTitle artist={release.artist} title={release.title} />
+        </motion.div>
 
-          <div className="flex gap-10 items-center">
-            <Spotify spotify={release.trackListing[0].spotify} />
-            <Beatport beatport={release.trackListing[0].beatport} />
-            <MP3Wav mp3wav={release.trackListing[0].recoverworld} />
-          </div>
+        <motion.div className="flex gap-10 items-center" variants={item}>
+          <Spotify spotify={release.trackListing[0].spotify} />
+          <Beatport beatport={release.trackListing[0].beatport} />
+          <MP3Wav mp3wav={release.trackListing[0].recoverworld} />
+        </motion.div>
 
+        <motion.div className="pt-10" variants={item}>
           <Tracklisting trackListing={release.trackListing} />
-        </div>
-      </div>
-      <hr className="opacity-10" />
-    </div>
+        </motion.div>
+        <hr className="opacity-10" />
+      </motion.div>
+    </>
   );
 }

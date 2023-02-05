@@ -22,7 +22,7 @@ export default function LatestReleases() {
   }, []);
 
   return (
-    <div className="pb-[250px]">
+    <div className="px-2">
       {latestReleases?.map((release: IRelease) => {
         return (
           <div key={release.ampsuiteId}>
