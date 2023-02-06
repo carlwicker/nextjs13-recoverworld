@@ -5,13 +5,18 @@ import MP3Wav from "./MP3Wav";
 import Spotify from "./Spotify";
 import Tracklisting from "./TrackListing";
 import { IRelease } from "@/interfaces/IRelease";
-import { motion } from "framer-motion";
+import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 
 interface IReleaseData {
   [key: string]: IRelease;
 }
 
 export default function Release({ release }: IReleaseData) {
+  let { scrollYProgress } = useScroll() as any;
+  let y = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 100 * 16])
+  ) as any;
+
   let container = {
     hidden: { opacity: 0 },
     show: {
@@ -35,6 +40,12 @@ export default function Release({ release }: IReleaseData) {
         initial="hidden"
         whileInView="show"
       >
+        <motion.div
+          initial={{ opacity: 1 }}
+          style={{ x: y, rotateZ: y, scale: 2 }}
+          className="bg-red-600 w-[160px] h-[160px] flex -z-50 absolute"
+        ></motion.div>
+
         <motion.div variants={item}>
           <CatLabel label={release.label} catNum={release.catNum} />
         </motion.div>
