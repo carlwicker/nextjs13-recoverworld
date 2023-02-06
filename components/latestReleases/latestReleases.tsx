@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { db } from "@/components/utils/Firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Release from "../release/Release";
-
 import { IRelease } from "@/interfaces/IRelease";
 
 export default function LatestReleases() {
