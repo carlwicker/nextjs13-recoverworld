@@ -6,7 +6,7 @@ interface ITrackListing {
 
 export default function Tracklisting({ trackListing }: ITrackListing) {
   return (
-    <div className="text-[32pt]">
+    <div className="lg:text-3xl text-sm w-full">
       {trackListing?.map((track: ITrack, idx: number) => {
         return (
           <div key={idx}>

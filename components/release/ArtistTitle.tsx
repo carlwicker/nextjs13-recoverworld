@@ -5,9 +5,11 @@ interface IArtist {
 
 export default function ArtistTitle({ artist, title }: IArtist) {
   return (
-    <div className="leading-none">
-      <div className="font-bold text-[128pt] uppercase">{title}</div>
-      <div className="text-[64pt]">{artist}</div>
+    <div className="">
+      <div className="font-bold lg:text-9xl sm:text-7xl text-5xl uppercase">
+        {title}
+      </div>
+      <div className="lg:text-6xl sm:text-4xl text-2xl">{artist}</div>
     </div>
   );
 }
