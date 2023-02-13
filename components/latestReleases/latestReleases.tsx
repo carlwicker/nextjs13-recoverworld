@@ -21,7 +21,7 @@ export default function LatestReleases() {
   }, []);
 
   return (
-    <div className="">
+    <>
       {latestReleases?.map((release: IRelease) => {
         return (
           <div key={release.ampsuiteId}>
@@ -29,6 +29,6 @@ export default function LatestReleases() {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }

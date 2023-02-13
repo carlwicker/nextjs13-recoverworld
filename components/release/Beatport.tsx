@@ -8,7 +8,7 @@ export default function Beatport({ beatport }: IBeatport) {
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        height="40"
+        height="30"
         viewBox="0 0 330 96.6"
         href="#"
         className="hover:cursor-pointer hover:text-red-600 transition duration-500 ease-out fill-white hover:fill-red-600"

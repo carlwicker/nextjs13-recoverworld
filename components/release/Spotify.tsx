@@ -7,7 +7,7 @@ export default function Spotify({ spotify }: ISpotify) {
     <a href={spotify} target="_blank" rel="noreferrer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        height="40px"
+        height="30px"
         version="1.1"
         viewBox="0 0 559 168"
         className="hover:cursor-pointer hover:fill-red-600 transition duration-500 ease-out fill-white sm:scale-100 "

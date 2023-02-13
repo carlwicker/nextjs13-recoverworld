@@ -1,7 +1,24 @@
+import { motion } from "framer-motion";
+
 export default function EmailWeb() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, x: 10 },
+    show: { opacity: 1, x: 0 },
+  };
+
   return (
-    <>
-      <div>
+    <motion.div variants={container} initial="hidden" whileInView="show">
+      <motion.div variants={item}>
         Email:{" "}
         <a
           href="mailto:info@recoverworld.com"
@@ -10,8 +27,8 @@ export default function EmailWeb() {
         >
           info@recoverworld.com
         </a>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div variants={item}>
         Web:{" "}
         <a
           href="http://recoverworld.com"
@@ -21,7 +38,7 @@ export default function EmailWeb() {
         >
           http://recoverworld.com
         </a>
-      </div>
-    </>
+      </motion.div>
+    </motion.div>
   );
 }

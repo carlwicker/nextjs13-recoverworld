@@ -40,7 +40,7 @@ export default function Release({ release }: IReleaseData) {
       whileInView="show"
     >
       <motion.div
-        initial={{ opacity: 1 }}
+        initial={{}}
         style={{ x: y, rotateZ: y, scale: 2 }}
         className="bg-red-600 w-[160px] h-[160px] flex -z-50 absolute"
       ></motion.div>
@@ -57,10 +57,7 @@ export default function Release({ release }: IReleaseData) {
         <Tracklisting trackListing={release.trackListing} />
       </motion.div>
 
-      <motion.div
-        className="flex gap-10 sm:items-center sm:flex-row flex-col"
-        variants={item}
-      >
+      <motion.div className="flex gap-5" variants={item}>
         <Spotify spotify={release.trackListing[0].spotify} />
         <Beatport beatport={release.trackListing[0].beatport} />
         <MP3Wav mp3wav={release.trackListing[0].recoverworld} />
